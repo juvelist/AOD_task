@@ -77,36 +77,6 @@
         display: block;
     }
 
-    .page-menu__burger-box:hover .side-menu__burger-line,
-    .page-menu__burger-box:active .side-menu__burger-line {
-        background-color: #28293b;
-    }
-
-    .page-menu__burger-line {
-        position: absolute;
-        background-color: #5d5f77;
-        height: 1px;
-        right: 0;
-        transition: background-color .4s ease;
-    }
-
-    .page-menu__burger-first {
-        left: 0;
-        top: 0;
-        right: 8px;
-    }
-
-    .page-menu__burger-second {
-        left: 0;
-        top: 7px;
-    }
-
-    .page-menu__burger-third {
-        left: 0;
-        bottom: 0;
-        right: 14px;
-    }
-
     .page__menu_list.page__menu_list-active {
         display: block;
     }

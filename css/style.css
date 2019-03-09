@@ -27,6 +27,10 @@ body {
     display: inline-block;
 }
 
+.dn {
+    display: none;
+}
+
 .clear-fix:after {
     clear: both;
     content: "";
@@ -96,40 +100,64 @@ body {
     transform: translateY(0px);
 }
 
-.side-menu__burger-box {
+.side-menu__burger-box,
+.page-menu__burger-box{
     cursor: pointer;
     height: 15px;
-    margin-left: 10px;
     position: relative;
     width: 25px;
 }
 
-.side-menu__burger-box:hover .side-menu__burger-line,
-.side-menu__burger-box:active .side-menu__burger-line {
-    background-color: #fff;
+.side-menu__burger-box {
+    margin-left: 10px;
+}
+.page-menu__burger-box {
+    display: none;
+    margin-left: 28px;
 }
 
-.side-menu__burger-line {
+.side-menu__burger-box:hover .side-menu__burger-line,
+.side-menu__burger-box:active .side-menu__burger-line,
+.side-menu__burger-box.active .side-menu__burger-line {
+    background-color: #fff;
+}
+.page-menu__burger-box:hover .page-menu__burger-line,
+.page-menu__burger-box:active .page-menu__burger-line,
+.page-menu__burger-box.active .page-menu__burger-line{
+    background-color: #28293b;
+}
+
+.side-menu__burger-line,
+.page-menu__burger-line {
     position: absolute;
     background-color: #5d5f77;
     height: 1px;
-    right: 0;
     transition: background-color .4s ease;
 }
 
-.side-menu__burger-first {
-    left: 8px;
-    top: 0;
+.side-menu__burger-line {
+    right: 0;
 }
-
-.side-menu__burger-second {
+.page-menu__burger-line {
     left: 0;
-    top: 7px;
 }
 
-.side-menu__burger-third {
-    left: 14px;
+.side-menu__burger-first,
+.page-menu__burger-first {
+    top: 0;
+    width: 70%;
+}
+
+.side-menu__burger-second,
+.page-menu__burger-second {
+    top: 7px;
+    width: 100%;
+}
+
+.side-menu__burger-third,
+.page-menu__burger-third {
     bottom: 0;
+    width: 45%;
 }
 
 .side-menu__title:hover,
@@ -180,6 +208,38 @@ body {
 
 .side-menu__button-filters {
     margin-bottom: 15px;
+}
+
+.side-menu__burger-box:hover .side-menu__burger-line,
+.page-menu__burger-box:hover .page-menu__burger-line {
+    animation: burger-line 1s infinite ease-in-out;
+}
+
+.side-menu__burger-box:hover .side-menu__burger-first,
+.page-menu__burger-box:hover .page-menu__burger-first{
+    animation-delay: -200ms;
+}
+
+.side-menu__burger-box:hover .side-menu__burger-second,
+.page-menu__burger-box:hover .page-menu__burger-second {
+    animation-delay: 200ms;
+}
+
+.side-menu__burger-box:hover .side-menu__burger-third,
+.page-menu__burger-box:hover .page-menu__burger-third {
+    animation-delay: -400ms;
+}
+
+@keyframes burger-line {
+    0%{
+        width:100%
+    }
+    50%{
+        width:45%
+    }
+    100%{
+        width:100%
+    }
 }
 
     /* SIDE MENU - Form */
@@ -363,14 +423,6 @@ a.side-menu__link:hover {
     margin: 0 0 0 5px;
 }
 
-.page-menu__burger-box {
-    cursor: pointer;
-    display: none;
-    height: 15px;
-    margin-left: 28px;
-    position: relative;
-    width: 25px;
-}
 
 /* MAIN - INVENTORY */
 .inventory-title {
@@ -436,8 +488,18 @@ table {
     border-collapse: collapse;
 }
 
+.table__block_container {
+    overflow: hidden;
+}
+
 .table__block_out {
     margin-bottom: 30px;
+    transition: all .6s ease;
+ }
+
+.table__block_acton {
+    transform: translateX(-211px);
+    width: calc(100% + 211px);
 }
 
 .ui.label, .ui.labels .label.table__list_link {
@@ -631,4 +693,59 @@ table {
 
 .table__list_link .table__button_icon {
     margin-left: 15px !important;
+}
+
+
+/* Modal */
+
+.table-modal__block {
+    border: 1px solid #ededed;
+}
+
+.table-modal__block td {
+    border-bottom: 1px solid #ededed;
+    height: 65px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.table-modal__block_item {
+    background-color: #f4f3fb;
+    border-right: 1px solid #ededed;
+    min-width: 200px;
+}
+
+.table-modal__block_input {
+    background-color: #fbfbfd;
+    font-size: 14px;
+    width: 100%;
+}
+
+.table__search-input {
+    vertical-align: middle !important;
+}
+
+.table__search-label {
+    background-color: #fff;
+    border: 1px solid rgba(34, 36, 38, .15);
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 24px;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.table__search-label:hover,
+.table__search-label:active {
+    border-color: #8079d7;
+}
+
+.table__search-upload {
+    display: none;
+}
+
+.table-modal__button {
+    min-width: 150px;
 }
